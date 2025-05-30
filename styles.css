@@ -63,10 +63,16 @@ button {
     border: none;
     border-radius: 5px;
     transition: background-color 0.3s;
+    margin: 10px;
 }
 
 button:hover {
     background-color: #0056b3;
+}
+
+#click-count {
+    font-size: 18px;
+    margin-top: 10px;
 }
 
 .dark-mode {
