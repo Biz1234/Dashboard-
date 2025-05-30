@@ -56,3 +56,16 @@ document.getElementById('reset-counter').addEventListener('click', () => {
     activityChart.data.datasets[0].data = chartData;
     activityChart.update();
 });
+
+document.getElementById('update-chart').addEventListener('click', () => {
+    const dayIndex = parseInt(document.getElementById('day-select').value);
+    const value = parseInt(document.getElementById('data-input').value);
+    if (!isNaN(value) && value >= 1 && value <= 50) {
+        chartData[dayIndex] = value;
+        activityChart.data.datasets[0].data = chartData;
+        activityChart.update();
+        document.getElementById('data-input').value = ''; // Clear input
+    } else {
+        alert('Please enter a value between 1 and 50');
+    }
+});
