@@ -70,6 +70,14 @@ button:hover {
     background-color: #0056b3;
 }
 
+#reset-counter {
+    background-color: #dc3545;
+}
+
+#reset-counter:hover {
+    background-color: #b02a37;
+}
+
 #click-count {
     font-size: 18px;
     margin-top: 10px;
@@ -99,4 +107,12 @@ button:hover {
 
 .dark-mode nav {
     background-color: #444;
+}
+
+.dark-mode #reset-counter {
+    background-color: #a71d2a;
+}
+
+.dark-mode #reset-counter:hover {
+    background-color: #821720;
 }
