@@ -86,6 +86,15 @@ button:hover {
     background-color: #218838;
 }
 
+#clear-chart {
+    background-color: #ffc107;
+    color: #333;
+}
+
+#clear-chart:hover {
+    background-color: #e0a800;
+}
+
 #click-count {
     font-size: 18px;
     margin-top: 10px;
@@ -155,6 +164,15 @@ button:hover {
 
 .dark-mode #toggle-chart-type:hover {
     background-color: #1a682d;
+}
+
+.dark-mode #clear-chart {
+    background-color: #d39e00;
+    color: #fff;
+}
+
+.dark-mode #clear-chart:hover {
+    background-color: #b8860b;
 }
 
 .dark-mode .chart-input label {
