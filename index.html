@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Dashboard</title>
+    <title>my Dashboard</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 </head>
@@ -17,7 +17,7 @@
     </nav>
     <div class="container">
         <h1>Welcome to My Dashboard</h1>
-        <p>A simple dashboard to track your progress.</p>
+        <p>A simple dashboard to track my progress.</p>
         <button id="theme-toggle">Toggle Dark Mode</button>
         <button id="click-counter">Click Me!</button>
         <button id="reset-counter">Reset Clicks</button>
@@ -34,6 +34,7 @@
             <label for="data-input">Value (1-50):</label>
             <input type="number" id="data-input" min="1" max="50" placeholder="Enter value">
             <button id="update-chart">Update Chart</button>
+            <button id="toggle-chart-type">Toggle Line Chart</button>
         </div>
         <canvas id="activity-chart" width="400" height="200"></canvas>
     </div>
