@@ -2,13 +2,15 @@
 let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
 let chartData = [10, 15, 7, 12, 9]; // Initial chart data
 let chartType = 'bar'; // Initial chart type
+let chartLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']; // Initial chart labels
+const availableDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 // Initialize Chart.js
 const ctx = document.getElementById('activity-chart').getContext('2d');
 const activityChart = new Chart(ctx, {
     type: chartType,
     data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        labels: chartLabels,
         datasets: [{
             label: 'Daily Activity',
             data: chartData,
@@ -17,7 +19,7 @@ const activityChart = new Chart(ctx, {
             borderWidth: 1
         }]
     },
-    options: {
+    options {
         scales: {
             y: {
                 beginAtZero: true
@@ -28,6 +30,18 @@ const activityChart = new Chart(ctx, {
 
 // Set initial click count display
 document.getElementById('click-count').textContent = `Clicks: ${clickCount}`;
+
+// Function to update day selector
+function updateDaySelect() {
+    const select = document.getElementById('day-select');
+    select.innerHTML = '';
+    chartLabels.forEach((label, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.text = label;
+        select.appendChild(option));
+    });
+}
 
 document.getElementById('theme-toggle').addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
@@ -53,7 +67,7 @@ document.getElementById('reset-counter').addEventListener('click', () => {
     document.getElementById('click-count').textContent = `Clicks: ${clickCount}`;
     localStorage.setItem('clickCount', clickCount); // Save to localStorage
     // Reset chart data
-    chartData = [10, 15, 7, 12, 9];
+    chartData = new Array(chartLabels.length).fill(10); // Reset to 10 for each day
     activityChart.data.datasets[0].data = chartData;
     activityChart.update();
 });
@@ -63,9 +77,9 @@ document.getElementById('update-chart').addEventListener('click', () => {
     const value = parseInt(document.getElementById('data-input').value);
     if (!isNaN(value) && value >= 1 && value <= 50) {
         chartData[dayIndex] = value;
-        activityChart.data.datasets[0].data = chartData;
-        activityChart.update();
-        document.getElementById('data-input').value = ''; // Clear input
+    activityChart.data.datasets[0].data = chartData;
+    activityChart.update();
+    document.getElementById('data-input').value = ''; // Clear input
     } else {
         alert('Please enter a value between 1 and 50');
     }
@@ -79,14 +93,39 @@ document.getElementById('toggle-chart-type').addEventListener('click', () => {
 });
 
 document.getElementById('clear-chart').addEventListener('click', () => {
-    chartData = [0, 0, 0, 0, 0];
+    chartData = new Array(chartLabels.length).fill(0);
     activityChart.data.datasets[0].data = chartData;
     activityChart.update();
-});
-
 document.getElementById('download-chart').addEventListener('click', () => {
-    const link = document.createElement('a');
+    const link = document.createElement('a const link = document.createElement('a');
     link.href = activityChart.toBase64Image();
     link.download = 'activity-chart.png';
     link.click();
+});
+
+document.getElementById('add-day').addEventListener('click', () => {
+    if (chartLabels.length < availableDays.length) {
+        const nextDay = availableDays[chartLabels.length];
+        chartLabels.push(nextDay);
+        chartData.push(0); // Default value for new day
+        activityChart.data.labels = chartLabels;
+        activityChart.data.datasets[0].data = chartData;
+        updateDaySelect();
+        activityChart.update();
+    } else {
+        alert('All available days have been added');
+    }
+});
+
+document.getElementById('remove-day').addEventListener('click', () => {
+    if (chartLabels.length > 1) {
+        chartLabels.pop();
+        chartData.pop();
+        activityChart.data.labels = chartLabels;
+        activityChart.data.datasets[0].data = chartData;
+        updateDaySelect();
+        activityChart.update();
+    } else {
+        alert('At least one day must remain in the chart');
+    }
 });
