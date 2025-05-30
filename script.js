@@ -13,6 +13,11 @@ document.getElementById('click-counter').addEventListener('click', () => {
     document.getElementById('click-count').textContent = `Clicks: ${clickCount}`;
 });
 
+document.getElementById('reset-counter').addEventListener('click', () => {
+    clickCount = 0;
+    document.getElementById('click-count').textContent = `Clicks: ${clickCount}`;
+});
+
 const ctx = document.getElementById('activity-chart').getContext('2d');
 new Chart(ctx, {
     type: 'bar',
