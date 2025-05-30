@@ -78,6 +78,14 @@ button:hover {
     background-color: #b02a37;
 }
 
+#toggle-chart-type {
+    background-color: #28a745;
+}
+
+#toggle-chart-type:hover {
+    background-color: #218838;
+}
+
 #click-count {
     font-size: 18px;
     margin-top: 10px;
@@ -139,6 +147,14 @@ button:hover {
 
 .dark-mode #reset-counter:hover {
     background-color: #821720;
+}
+
+.dark-mode #toggle-chart-type {
+    background-color: #1f8136;
+}
+
+.dark-mode #toggle-chart-type:hover {
+    background-color: #1a682d;
 }
 
 .dark-mode .chart-input label {
