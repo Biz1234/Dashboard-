@@ -25,6 +25,18 @@ const activityChart = new Chart(ctx, {
             y: {
                 beginAtZero: true
             }
+        },
+        plugins: {
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        const value = context.raw;
+                        const total = context.dataset.data.reduce((sum, val) => sum + val, 0);
+                        const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
+                        return `${context.label}: ${value} (${percentage}%)`;
+                    }
+                }
+            }
         }
     }
 });
