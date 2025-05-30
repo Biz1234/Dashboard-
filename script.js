@@ -12,3 +12,25 @@ document.getElementById('click-counter').addEventListener('click', () => {
     clickCount++;
     document.getElementById('click-count').textContent = `Clicks: ${clickCount}`;
 });
+
+const ctx = document.getElementById('activity-chart').getContext('2d');
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        datasets: [{
+            label: 'Daily Activity',
+            data: [10, 15, 7, 12, 9],
+            backgroundColor: '#007bff',
+            borderColor: '#0056b3',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
