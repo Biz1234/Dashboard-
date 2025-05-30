@@ -95,6 +95,14 @@ button:hover {
     background-color: #e0a800;
 }
 
+#download-chart {
+    background-color: #17a2b8;
+}
+
+#download-chart:hover {
+    background-color: #138496;
+}
+
 #click-count {
     font-size: 18px;
     margin-top: 10px;
@@ -173,6 +181,14 @@ button:hover {
 
 .dark-mode #clear-chart:hover {
     background-color: #b8860b;
+}
+
+.dark-mode #download-chart {
+    background-color: #117a8b;
+}
+
+.dark-mode #download-chart:hover {
+    background-color: #0d6a7a;
 }
 
 .dark-mode .chart-input label {
