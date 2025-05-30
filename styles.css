@@ -103,6 +103,22 @@ button:hover {
     background-color: #138496;
 }
 
+#add-day {
+    background-color: #6f42c1;
+}
+
+#add-day:hover {
+    background-color: #5a32a3;
+}
+
+#remove-day {
+    background-color: #fd7e14;
+}
+
+#remove-day:hover {
+    background-color: #e06c12;
+}
+
 #click-count {
     font-size: 18px;
     margin-top: 10px;
@@ -189,6 +205,22 @@ button:hover {
 
 .dark-mode #download-chart:hover {
     background-color: #0d6a7a;
+}
+
+.dark-mode #add-day {
+    background-color: #5930a1;
+}
+
+.dark-mode #add-day:hover {
+    background-color: #4a2786;
+}
+
+.dark-mode #remove-day {
+    background-color: #e06c12;
+}
+
+.dark-mode #remove-day:hover {
+    background-color: #c75e0f;
 }
 
 .dark-mode .chart-input label {
