@@ -1,11 +1,12 @@
 // Load click count from localStorage or default to 0
 let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
 let chartData = [10, 15, 7, 12, 9]; // Initial chart data
+let chartType = 'bar'; // Initial chart type
 
 // Initialize Chart.js
 const ctx = document.getElementById('activity-chart').getContext('2d');
 const activityChart = new Chart(ctx, {
-    type: 'bar',
+    type: chartType,
     data: {
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
         datasets: [{
@@ -68,4 +69,11 @@ document.getElementById('update-chart').addEventListener('click', () => {
     } else {
         alert('Please enter a value between 1 and 50');
     }
+});
+
+document.getElementById('toggle-chart-type').addEventListener('click', () => {
+    chartType = chartType === 'bar' ? 'line' : 'bar';
+    activityChart.config.type = chartType;
+    document.getElementById('toggle-chart-type').textContent = chartType === 'bar' ? 'Toggle Line Chart' : 'Toggle Bar Chart';
+    activityChart.update();
 });
