@@ -77,3 +77,9 @@ document.getElementById('toggle-chart-type').addEventListener('click', () => {
     document.getElementById('toggle-chart-type').textContent = chartType === 'bar' ? 'Toggle Line Chart' : 'Toggle Bar Chart';
     activityChart.update();
 });
+
+document.getElementById('clear-chart').addEventListener('click', () => {
+    chartData = [0, 0, 0, 0, 0];
+    activityChart.data.datasets[0].data = chartData;
+    activityChart.update();
+});
