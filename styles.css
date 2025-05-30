@@ -88,6 +88,30 @@ button:hover {
     max-width: 400px;
 }
 
+.chart-input {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.chart-input label {
+    font-size: 16px;
+    color: #333;
+}
+
+.chart-input select, .chart-input input {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.chart-input input {
+    width: 100px;
+}
+
 .dark-mode {
     background-color: #333;
     color: #fff;
@@ -115,4 +139,14 @@ button:hover {
 
 .dark-mode #reset-counter:hover {
     background-color: #821720;
+}
+
+.dark-mode .chart-input label {
+    color: #ccc;
+}
+
+.dark-mode .chart-input select, .dark-mode .chart-input input {
+    background-color: #555;
+    color: #fff;
+    border-color: #777;
 }
