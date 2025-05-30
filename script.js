@@ -83,3 +83,10 @@ document.getElementById('clear-chart').addEventListener('click', () => {
     activityChart.data.datasets[0].data = chartData;
     activityChart.update();
 });
+
+document.getElementById('download-chart').addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.href = activityChart.toBase64Image();
+    link.download = 'activity-chart.png';
+    link.click();
+});
